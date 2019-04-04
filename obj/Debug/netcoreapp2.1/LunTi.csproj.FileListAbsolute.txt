@@ -1,0 +1,14 @@
+D:\LAB1\x64\LunTi\bin\Debug\netcoreapp2.1\LunTi.deps.json
+D:\LAB1\x64\LunTi\bin\Debug\netcoreapp2.1\LunTi.runtimeconfig.json
+D:\LAB1\x64\LunTi\bin\Debug\netcoreapp2.1\LunTi.runtimeconfig.dev.json
+D:\LAB1\x64\LunTi\bin\Debug\netcoreapp2.1\LunTi.dll
+D:\LAB1\x64\LunTi\bin\Debug\netcoreapp2.1\LunTi.pdb
+D:\LAB1\x64\LunTi\obj\Debug\netcoreapp2.1\LunTi.csprojAssemblyReference.cache
+D:\LAB1\x64\LunTi\obj\Debug\netcoreapp2.1\LunTi.csproj.CoreCompileInputs.cache
+D:\LAB1\x64\LunTi\obj\Debug\netcoreapp2.1\LunTi.RazorAssemblyInfo.cache
+D:\LAB1\x64\LunTi\obj\Debug\netcoreapp2.1\LunTi.RazorAssemblyInfo.cs
+D:\LAB1\x64\LunTi\obj\Debug\netcoreapp2.1\LunTi.AssemblyInfoInputs.cache
+D:\LAB1\x64\LunTi\obj\Debug\netcoreapp2.1\LunTi.AssemblyInfo.cs
+D:\LAB1\x64\LunTi\obj\Debug\netcoreapp2.1\LunTi.RazorTargetAssemblyInfo.cache
+D:\LAB1\x64\LunTi\obj\Debug\netcoreapp2.1\LunTi.dll
+D:\LAB1\x64\LunTi\obj\Debug\netcoreapp2.1\LunTi.pdb
