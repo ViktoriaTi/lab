@@ -8,7 +8,7 @@ namespace LunTi.Models
        public string Author { get; set; }
        public int Pages { get; set; }
        public string Publisher { get; set; }
-   
+   public Guid Id { get; set; } = Guid.Empty;
     public BaseModelValidationResult Validate()
        {
            var validationResult = new BaseModelValidationResult();
@@ -27,7 +27,7 @@ namespace LunTi.Models
 
        public override string ToString()
        {
-           return $"'{BookName}' {Author} from {Publisher}-{Pages} pages";
+           return $"'{BookName}' {Author} from {Publisher}-{Pages} pages ";
        }
    }}
 
