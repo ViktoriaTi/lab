@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-     <Version>0.0.2-rc.1</Version>
+     <Version>0.0.3-rc.1</Version>
    <Authors>V.Titova, M.Luneva</Authors>
    <Company>KupiBook.com</Company>
    <Product>Laboratornay_2</Product>
