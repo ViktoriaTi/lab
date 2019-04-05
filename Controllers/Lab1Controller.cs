@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using LunTi.Models;
+using LunTi.Storage;
 
 namespace LunTi.Models
 {
@@ -10,24 +11,30 @@ namespace LunTi.Models
    [ApiController]
    public class LabController : ControllerBase
    {
-       private static List<Lab1Data> _memCache = new List<Lab1Data>();
+      // private static List<Lab1Data> _memCache = new List<Lab1Data>();
+        private static IStorage<LabData> _memCache = new MemCache();
+
 
        [HttpGet]
        public ActionResult<IEnumerable<Lab1Data>> Get()
        {
-           return Ok(_memCache);
+         //  return Ok(_memCache);
+           return Ok(_memCache.All);
        }
 
        [HttpGet("{id}")]
-       public ActionResult<Lab1Data> Get(int id)
+      // public ActionResult<Lab1Data> Get(int id)
+        public ActionResult<LabData> Get(Guid id)
        {
-           if (_memCache.Count <= id) return NotFound("No such");
+          // if (_memCache.Count <= id) return NotFound("No such");
+           if (!_memCache.Has(id)) return NotFound("No such");
 
            return Ok(_memCache[id]);
        }
 
        [HttpPost]
        public IActionResult Post([FromBody] Lab1Data value)
+         
        {
            var validationResult = value.Validate();
 
@@ -39,9 +46,11 @@ namespace LunTi.Models
        }
 
        [HttpPut("{id}")]
-       public IActionResult Put(int id, [FromBody] Lab1Data value)
+       //public IActionResult Put(int id, [FromBody] Lab1Data value)
+       public IActionResult Put(Guid id, [FromBody] LabData value)
        {
-           if (_memCache.Count <= id) return NotFound("No such");
+         //  if (_memCache.Count <= id) return NotFound("No such");
+           if (!_memCache.Has(id)) return NotFound("No such");
 
            var validationResult = value.Validate();
 
@@ -54,9 +63,11 @@ namespace LunTi.Models
        }
 
        [HttpDelete("{id}")]
-       public IActionResult Delete(int id)
+       //public IActionResult Delete(int id)
+        public IActionResult Delete(Guid id)
        {
-           if (_memCache.Count <= id) return NotFound("No such");
+         //  if (_memCache.Count <= id) return NotFound("No such");
+            if (!_memCache.Has(id)) return NotFound("No such");
 
            var valueToRemove = _memCache[id];
            _memCache.RemoveAt(id);
