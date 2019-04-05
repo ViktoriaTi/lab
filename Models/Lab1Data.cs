@@ -27,7 +27,7 @@ namespace LunTi.Models
 
        public override string ToString()
        {
-           return $"'{BookName}' {Author} from {Publisher}-{Pages} pages";
+           return $"'{BookName}' {Author} from {Publisher}-{Pages} pages ";
        }
    }}
 
