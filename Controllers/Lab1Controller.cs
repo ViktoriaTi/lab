@@ -12,8 +12,13 @@ namespace LunTi.Models
    public class LabController : ControllerBase
    {
       // private static List<Lab1Data> _memCache = new List<Lab1Data>();
-        private static IStorage<LabData> _memCache = new MemCache();
+       // private static IStorage<Lab1Data> _memCache = new MemCache();
+private IStorage<Lab1Data> _memCache;
 
+        public LabController(IStorage<Lab1Data> memCache)
+        {
+            _memCache = memCache;
+        }
 
        [HttpGet]
        public ActionResult<IEnumerable<Lab1Data>> Get()
@@ -24,7 +29,7 @@ namespace LunTi.Models
 
        [HttpGet("{id}")]
       // public ActionResult<Lab1Data> Get(int id)
-        public ActionResult<LabData> Get(Guid id)
+        public ActionResult<Lab1Data> Get(Guid id)
        {
           // if (_memCache.Count <= id) return NotFound("No such");
            if (!_memCache.Has(id)) return NotFound("No such");
@@ -47,7 +52,7 @@ namespace LunTi.Models
 
        [HttpPut("{id}")]
        //public IActionResult Put(int id, [FromBody] Lab1Data value)
-       public IActionResult Put(Guid id, [FromBody] LabData value)
+       public IActionResult Put(Guid id, [FromBody] Lab1Data value)
        {
          //  if (_memCache.Count <= id) return NotFound("No such");
            if (!_memCache.Has(id)) return NotFound("No such");
