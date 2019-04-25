@@ -5,7 +5,8 @@ using System.Threading;
 using LunTi.Storage;
 using Newtonsoft.Json;
 using LunTi.Models;
-
+namespace LunTi.Storage
+{
 public class FileStorage : MemCache, IStorage<Lab1Data>
    {
        private Timer _timer;
@@ -55,3 +56,4 @@ public class FileStorage : MemCache, IStorage<Lab1Data>
            File.WriteAllText(FileName, serializedContents);
        }
    }
+}
