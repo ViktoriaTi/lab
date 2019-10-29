@@ -10,6 +10,15 @@ namespace LunTi.Models
        public int Pages { get; set; }
        public string Publisher { get; set; }
    public Guid Id { get; set; } = Guid.Empty;
+    private void ConfigureLogger()
+       {
+           var log = new LoggerConfiguration()
+               .WriteTo.Console()
+               .WriteTo.File("logs\\LunTi.log", rollingInterval: RollingInterval.Day)
+               .CreateLogger();
+ 
+           Log.Logger = log;
+       }
     public BaseModelValidationResult Validate()
        {
            var validationResult = new BaseModelValidationResult();
@@ -30,5 +39,11 @@ namespace LunTi.Models
        {
            return $"'{BookName}' {Author} from {Publisher}-{Pages} pages ";
        }
-   }}
+       public void ConfigureServices(IServiceCollection services)
+       {
+           services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+ 
+           ConfigureLogger();
+
+   }}}
 

@@ -12,7 +12,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using LunTi.Models;
 using LunTi.Storage;
-
+using LunTi.Models;
+using LunTi.Storage;
+using Serilog;
 namespace LunTi
 {
     public class Startup
@@ -25,9 +27,21 @@ namespace LunTi
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+           private void ConfigureLogger()
+       {
+           var log = new LoggerConfiguration()
+               .WriteTo.Console()
+               .WriteTo.File("logs\\LunTi.log", rollingInterval: RollingInterval.Day)
+               .CreateLogger();
+ 
+           Log.Logger = log;
+       }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+             ConfigureLogger();
+
            switch (Configuration["Storage:Type"].ToStorageEnum())
             {
                 case StorageEnum.MemCache:
@@ -57,5 +71,6 @@ namespace LunTi
             app.UseHttpsRedirection();
             app.UseMvc();
         }
+        
     }
 }
