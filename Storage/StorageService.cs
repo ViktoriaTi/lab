@@ -1,12 +1,13 @@
-using pavlovLab.Models;
+using LunTi.Storage;
+using LunTi.Models;
 
-namespace pavlovLab.Storage
+namespace LunTi.Storage
 {
     public class StorageService
     {
-        private readonly IStorage<LabData> _storage;
+        private readonly IStorage<Lab1Data> _storage;
 
-        public StorageService(IStorage<LabData> storage)
+        public StorageService(IStorage<Lab1Data> storage)
         {
             _storage = storage;
         }
